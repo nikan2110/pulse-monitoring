@@ -29,9 +29,17 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<profiles>
+    <profile>
 	<modules>
 		<module>pulse-analyser</module>
 		<module>pulse-monitoring-dto</module>
 		<module>pulse-source</module>
+	</modules>
+    </profile>
+</profiles>
+
+	<modules>
+		<module>pulse-monitoring-dto</module>
 	</modules>
 </project>

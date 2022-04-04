@@ -8,7 +8,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import io.netty.util.internal.ThreadLocalRandom;
-import telran.pulse.monitoring.dto.Sensor;
 
 @SpringBootApplication
 public class PulseSourceApplication {
