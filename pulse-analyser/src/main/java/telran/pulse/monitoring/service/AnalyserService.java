@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jmx.export.annotation.ManagedOperation;
+import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Service;
 
 import telran.pulse.monitoring.Sensor;
@@ -16,6 +18,7 @@ import telran.pulse.monitoring.entities.SensorRedis;
 import telran.pulse.monitoring.repo.SensorRepository;
 
 @Service
+@ManagedResource
 public class AnalyserService {
 
 	static Logger LOG = LoggerFactory.getLogger(AnalyserService.class);
@@ -26,6 +29,16 @@ public class AnalyserService {
 	int jumpPercentThreshold;
 	@Value("${app.critical.threshold:100}")
 	int criticalPercentThreshold;
+
+	@ManagedOperation
+	public int getJumpPercentThreshold() {
+		return jumpPercentThreshold;
+	}
+	
+	@ManagedOperation
+	public void setJumpPercentThreshold(int jumpPercentThreshold) {
+		this.jumpPercentThreshold = jumpPercentThreshold;
+	}
 
 	@Autowired
 	public AnalyserService(StreamBridge streamBridge, SensorRepository sensorRepository) {
@@ -59,6 +72,8 @@ public class AnalyserService {
 			}
 
 		}
+		sensorRedis.addCurrentValue(sensor.value);
+		sensorRepository.save(sensorRedis);
 	}
 
 }

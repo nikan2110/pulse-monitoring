@@ -35,5 +35,8 @@
 		<module>pulse-monitoring-config-server</module>
 			<module>pulse-analyser</module>
 		<module>pulse-source</module>
+		<module>pulse-monitoring-jumps-populator</module>
+		<module>pulse-monitoring-jumps-notifier</module>
+		<module>pulse-monitoring-avg-reducer</module>
 	</modules>
 </project>

@@ -25,9 +25,9 @@ static ConfigurableApplicationContext ctx;
 		int id = getRandomNumber(1, 10);
 		int value = getRandomNumber(40, 220);
 		Sensor sensor = new Sensor(id, value, count++);
-		if (count > 100) {
-			ctx.close();
-		}
+//		if (count > 100) {
+//			ctx.close();
+//		}
 		return sensor;
 		
 		
