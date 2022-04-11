@@ -8,6 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import io.netty.util.internal.ThreadLocalRandom;
+import telran.pulse.monitoring.dto.Sensor;
 
 @SpringBootApplication
 public class PulseSourceApplication {
@@ -22,7 +23,7 @@ static ConfigurableApplicationContext ctx;
 		return this::pulseRandomGeneration;
 	}
 	Sensor pulseRandomGeneration() {
-		int id = getRandomNumber(1, 10);
+		int id = getRandomNumber(1, 4);
 		int value = getRandomNumber(40, 220);
 		Sensor sensor = new Sensor(id, value, count++);
 //		if (count > 100) {

@@ -8,6 +8,6 @@ import telran.pulse.monitoring.entities.Visit;
 
 public interface VisitReposiory extends JpaRepository<Visit, Integer> {
 
-	@Query(value = "select email from visits where patient_id=:patientId order by date desc limit 1", nativeQuery = true)
+	@Query(value = "select doctor_email from visits where patient_id=:patientId order by date desc limit 1", nativeQuery = true)
 	String getDoctorEmail(@Param("patientId") int patientId);
 }

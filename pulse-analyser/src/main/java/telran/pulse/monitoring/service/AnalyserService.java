@@ -12,8 +12,8 @@ import org.springframework.jmx.export.annotation.ManagedOperation;
 import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Service;
 
-import telran.pulse.monitoring.Sensor;
-import telran.pulse.monitoring.SensorJump;
+import telran.pulse.monitoring.dto.Sensor;
+import telran.pulse.monitoring.dto.SensorJump;
 import telran.pulse.monitoring.entities.SensorRedis;
 import telran.pulse.monitoring.repo.SensorRepository;
 

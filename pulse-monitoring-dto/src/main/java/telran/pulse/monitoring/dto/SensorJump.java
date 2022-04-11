@@ -1,4 +1,4 @@
-package telran.pulse.monitoring;
+package telran.pulse.monitoring.dto;
 
 public class SensorJump {
 
