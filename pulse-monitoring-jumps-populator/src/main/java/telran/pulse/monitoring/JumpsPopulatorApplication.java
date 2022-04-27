@@ -4,15 +4,20 @@ import java.util.function.Consumer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import telran.pulse.monitoring.dto.SensorJump;
+import telran.pulse.monitoring.entities.JumpDoc;
+import telran.pulse.monitoring.repository.JumpsRepository;
 
 @SpringBootApplication
 public class JumpsPopulatorApplication {
 
+	@Autowired
+	JumpsRepository jumpsRepository;
 	static Logger LOG = LoggerFactory.getLogger(JumpsPopulatorApplication.class);
 
 	public static void main(String[] args) {
@@ -28,6 +33,7 @@ public class JumpsPopulatorApplication {
 	void jumpProcessing(SensorJump sensorJump) {
 		LOG.trace("receiver sensor id {} previous value {} current value {}", sensorJump.sensorId,
 				sensorJump.previousValue, sensorJump.currentValue);
+		jumpsRepository.insert(JumpDoc.build(sensorJump));
 	}
 
 }
