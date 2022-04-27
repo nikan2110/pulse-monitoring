@@ -7,6 +7,7 @@ import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import telran.pulse.monitoring.dto.VisitData;
@@ -17,6 +18,7 @@ import telran.pulse.monitoring.repo.DoctorRepository;
 import telran.pulse.monitoring.repo.PatientRepository;
 import telran.pulse.monitoring.repo.VisitReposiory;
 
+@Service
 public class VisitServiceImpl implements VisitService {
 
 	DoctorRepository doctorRepository;

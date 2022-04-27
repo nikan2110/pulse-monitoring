@@ -10,18 +10,10 @@ public class Sensor {
 	public Sensor() {
 	}
 
-	public Sensor(int id, int value, int seqNum) {
-		this.id = id;
-		this.value = value;
-		this.seqNum = seqNum;
-		timestamp = System.currentTimeMillis();
-	}
-
 	public Sensor(int id, int value) {
 		this.id = id;
 		this.value = value;
+		timestamp = System.currentTimeMillis();
 	}
-	
-	
 
 }
